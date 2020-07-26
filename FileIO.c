@@ -67,7 +67,7 @@ IMAGE *LoadImage(const char *fname) {
 int SaveImage(const char *fname, const IMAGE *image) {
     FILE	*File;
     int	x, y;
-    char	SysCmd[SLEN * 5];
+    //char	SysCmd[SLEN * 5];
 
     char	ftype[] = ".ppm";
     char	fname_tmp[SLEN];  /*avoid to modify on the original pointer, 11/10/10, X.Han*/
@@ -104,12 +104,14 @@ int SaveImage(const char *fname, const IMAGE *image) {
      * rename file to image.ppm, convert it to ~/public_html/<fname>.jpg
      * and make it world readable
      */
+	/* This is unneeded since this program no longer runs on the school unix server
     sprintf(SysCmd, "/users/grad2/doemer/eecs22/bin/pnmtojpeg_hw3.tcsh %s", fname_tmp2);
     if (system(SysCmd) != 0) {
         printf("\nError while converting to JPG:\nCommand \"%s\" failed!\n", SysCmd);
         return 3;
     }
     printf("%s.jpg was stored.\n", fname_tmp);
+	*/
     return 0;
 }
 /* vim: set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab : */

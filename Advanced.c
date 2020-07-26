@@ -322,14 +322,15 @@ IMAGE *Resize(IMAGE *image, int percentage){
 		int newwidth = WIDTH*(percentage/100.00);
 		int newheight = HEIGHT*(percentage/100.00);
 		IMAGE *small = CreateImage(newwidth, newheight);
-		int x1, y1,x2,y2,range;
+		//int x2,y2,range;
+		int x1, y1;
 		for (int x=0;x<newwidth;x++){
 			for(int y=0; y<newheight;y++){
 				x1 = x/(percentage/100.00);
-				x2 = (x+1)/(percentage/100.00);
+				//x2 = (x+1)/(percentage/100.00);
 				y1 = y/(percentage/100.00);
-				y2 = (y+1)/(percentage/100.00);
-				range = (x2-x1)*(y2-y1);
+				//y2 = (y+1)/(percentage/100.00);
+				//range = (x2-x1)*(y2-y1);
 				SetPixelR(small,x,y,GetPixelR(image,x1,y1));
 				SetPixelG(small,x,y,GetPixelG(image,x1,y1));
 				SetPixelB(small,x,y,GetPixelB(image,x1,y1));

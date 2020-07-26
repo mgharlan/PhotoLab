@@ -28,10 +28,9 @@ void AutoTest(void);
 
 int main()
 {
-	int rc ;
+	int rc=0 ;
 #ifdef DEBUG
 	AutoTest();
-	rc = 0 ;
 
 #else
 	IMAGE *image = NULL;
@@ -41,14 +40,14 @@ int main()
 	unsigned char G[WIDTH][HEIGHT];*/
 
 	int option;			/* user input option */
-        char fname[SLEN];		/* input file name */
+    char fname[SLEN];		/* input file name */
 	int brightness = -256;
 	float angle;
 	int roption;
 	int resizepercentage;
 	float saturatepercentage;
 
-	rc = 1 ;
+	rc += 1 ;
 	PrintMenu();
     printf("Please make your choice: ");
     scanf("%d", &option);
@@ -58,8 +57,8 @@ int main()
             printf("Please input the file name to load: ");
             scanf("%s", fname);
             //rc = LoadImage(fname);
-	    image = LoadImage(fname);
-	    //assert(image);
+			image = LoadImage(fname);
+			//assert(image);
 		}
 
 		/* menu item 2 - 8 requires image is loaded first */
@@ -68,61 +67,61 @@ int main()
                 printf("No image is read.\n");
             }
             /* now image is loaded */
-            else {
-	switch (option) {
-	case 2:
-      	    printf("Please input the file name to save: ");
-	    scanf("%s", fname);
-	    SaveImage(fname, image);
-	    break;
-	 case 3:
-            image = BlackNWhite(image);
-            printf("\"Black & White\" operation is done!\n");
-            break;
-	case 4:
-            image = Edge(image);
-            printf("\"Edge\" operation is done!\n");
-            break;
-          case 5:
-            image = Shuffle(image);
-            printf("\"Shuffle\" operation is done!\n");
-            break;
-	case 6:
- 	    while(brightness > 255 || brightness < -255){
-	    printf("Enter brightness value (between -255 and 255):");
-	    scanf("%d", &brightness);
-						}
-            image = Brightness(image, brightness);
-            printf("\"brightness\" operation is done!\n");
-            break;
-	case 7:
-            image = HMirror(image);
-            printf("\"Horizontally Mirror\" operation is done!\n");
-            break;
-          case 8:
-            printf("Enter hue rotation angle:");
-            scanf("%f", &angle);
-            image = HueRotate(image, angle);
-            printf("\"HueRotate\" operation is done!\n");
-            break;
-	  case 9:
-            printf("Enter 1 for Horizontal Flip, 2 for Vertical Flip,\n3 for Clockwise, 4 for Counterclockwise:");
-            scanf("%d", &roption);
-	    image = Rotate(image,roption);
-	    printf("\"Rotate\" operation is done!\n");
-            break;
-	  case 10:
-	    printf("Enter Resize percentage:");
-	    scanf("%d", &resizepercentage);
-	    image = Resize(image,resizepercentage);
-	    printf("\"Resize\" operation is done!\n");
-	  case 11:
-	    printf("Enter Saturation percentage:");
-	    scanf("%f", &saturatepercentage);
-	    image = Saturate(image,saturatepercentage);
-	    printf("\"Saturation\" operation is done!\n");
-	default:
-	    break;
+			else {
+				switch (option) {
+				case 2:
+					printf("Please input the file name to save: ");
+					scanf("%s", fname);
+					SaveImage(fname, image);
+					break;
+				case 3:
+					image = BlackNWhite(image);
+					printf("\"Black & White\" operation is done!\n");
+					break;
+				case 4:
+					image = Edge(image);
+					printf("\"Edge\" operation is done!\n");
+					break;
+				case 5:
+					image = Shuffle(image);
+					printf("\"Shuffle\" operation is done!\n");
+					break;
+				case 6:
+					while(brightness > 255 || brightness < -255){
+						printf("Enter brightness value (between -255 and 255):");
+						scanf("%d", &brightness);
+					}
+					image = Brightness(image, brightness);
+					printf("\"brightness\" operation is done!\n");
+					break;
+				case 7:
+					image = HMirror(image);
+					printf("\"Horizontally Mirror\" operation is done!\n");
+					break;
+				case 8:
+					printf("Enter hue rotation angle:");
+					scanf("%f", &angle);
+					image = HueRotate(image, angle);
+					printf("\"HueRotate\" operation is done!\n");
+					break;
+				case 9:
+					printf("Enter 1 for Horizontal Flip, 2 for Vertical Flip,\n3 for Clockwise, 4 for Counterclockwise:");
+					scanf("%d", &roption);
+					image = Rotate(image,roption);
+					printf("\"Rotate\" operation is done!\n");
+					break;
+				case 10:
+					printf("Enter Resize percentage:");
+					scanf("%d", &resizepercentage);
+					image = Resize(image,resizepercentage);
+					printf("\"Resize\" operation is done!\n");
+				case 11:
+					printf("Enter Saturation percentage:");
+					scanf("%f", &saturatepercentage);
+					image = Saturate(image,saturatepercentage);
+					printf("\"Saturation\" operation is done!\n");
+				default:
+					break;
 
 				}
 			}
@@ -134,6 +133,7 @@ int main()
         }
         else {
             printf("Invalid selection!\n");
+			while (getchar() != '\n');
         }
 
 		/* Process finished, waiting for another input */
@@ -143,9 +143,9 @@ int main()
 	}
 	if (image != NULL){
 		DeleteImage(image);}
-    printf("You exit the program.\n");
+		printf("You exit the program.\n");
 #endif
-	return 0;
+	return rc;
 }
 
 

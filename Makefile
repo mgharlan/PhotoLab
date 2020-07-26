@@ -19,7 +19,7 @@ RANLIB = ranlib
 IMAGES = bw.ppm \
          edge.ppm \
          shuffle.ppm \
-	 brightness.ppm \
+		 brightness.ppm \
          hmirror.ppm \
          hue.ppm \
          rotate.ppm \
