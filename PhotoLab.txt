@@ -1,0 +1,12 @@
+Mason Harlan
+Student ID#63263805
+
+This assignment was time consuming more than anything. Changing the implementation from 
+arrays to dynamic structures and arrays was difficult and took a lot of time. 
+It was hard to break everything up into testable pieces. The saturate and rotate
+functions were easy to implement and the enlarge part of the resize function
+went smoothly. I was unable to finish the resize small. I left the part that 
+was close commented out. I was able to get the image to change size but for 
+some reason it comes out very yellow when I try to average the values. I learned
+a lot in this assignment and I feel confident in my ability to design and use malloc
+and free. I am disappointed that I was unable to implement all parts of the function.
