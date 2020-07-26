@@ -115,11 +115,13 @@ int main()
 					scanf("%d", &resizepercentage);
 					image = Resize(image,resizepercentage);
 					printf("\"Resize\" operation is done!\n");
+					break;
 				case 11:
 					printf("Enter Saturation percentage:");
 					scanf("%f", &saturatepercentage);
 					image = Saturate(image,saturatepercentage);
 					printf("\"Saturation\" operation is done!\n");
+					break;
 				default:
 					break;
 
@@ -157,7 +159,7 @@ int main()
 void PrintMenu() {
     printf("\n----------------------------\n");
     printf(" 1: Load a PPM image\n");
-    printf(" 2: Save an image in PPM and JPEG format\n");
+    printf(" 2: Save an image in PPM format\n");
     printf(" 3: Change a color image to Black & White\n");
     printf(" 4: Sketch the edge of an image\n");
     printf(" 5: Shuffle an image\n");
